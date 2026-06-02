@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizForge - Idea to Empire</title>
+    <style>
+        :root {
+            --primary: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 380px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        #btn-hero-cta {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        #btn-hero-cta:hover {
+            background: #059669;
+        }
+        
+        /* MAIN SECTION */
+        .main {
+            padding: 40px 20px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 1.35rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Search & Filter Bar */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        #input-search {
+            flex: 1;
+            min-width: 160px;
+            padding: 12px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        #input-filter-status,
+        #input-filter-segment {
+            min-width: 140px;
+            padding: 12px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        #input-search:focus, #input-filter-status:focus, #input-filter-segment:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        #input-search:focus, #input-filter-status:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        /* Business Stages List */
+        #list-root {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        
+        #list-root li {
+            background: white;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 500;
+        }
+        
+        /* Insights Panel */
+        #insights-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        #insights-panel h3 {
+            margin-bottom: 18px;
+            color: #0f172a;
+        }
+        
+        .insight-card {
+            background: #f1f5f9;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+        }
+
+        .insight-card strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+
+        .insight-card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+        
+        /* CTA Form */
+        .cta-form {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        
+        .cta-form input, .cta-form select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        
+        .cta-form input:focus, .cta-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        #btn-form-submit {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #btn-form-submit:hover {
+            background: #059669;
+        }
+
+        .segment-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #e2f7ee;
+            color: #065f46;
+            font-size: 0.78rem;
+            letter-spacing: 0.01em;
+            text-transform: capitalize;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 40px 20px 30px;
+            font-size: 0.95rem;
+        }
+        
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .stack span {
+            background: #1e2937;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1>From Idea<br>to Empire</h1>
+        <p>Your complete A-to-Z business companion for Nigerian entrepreneurs</p>
+        <button id="btn-hero-cta">Start Building Free</button>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main class="main">
+        
+        <!-- Business Journey Section -->
+        <h2 class="section-title">Your Business Journey</h2>
+
+        <!-- Search & Filter Bar -->
+        <div class="filter-bar">
+            <input type="text" id="input-search" placeholder="Search your ideas...">
+            <select id="input-filter-status">
+                <option value="">All Stages</option>
+                <option value="idea">Just an Idea</option>
+                <option value="mvp">Building MVP</option>
+                <option value="revenue">Making Revenue</option>
+                <option value="scaling">Ready to Scale</option>
+            </select>
+            <select id="input-filter-segment">
+                <option value="">All Segments</option>
+                <option value="agriculture">Agriculture</option>
+                <option value="services">Services</option>
+                <option value="financial">Financial</option>
+                <option value="tech">Technology</option>
+                <option value="retail">Retail</option>
+                <option value="creative">Creative</option>
+            </select>
+        </div>
+
+        <!-- Business List (populated by JS) -->
+        <ul id="list-root">
+            <!-- Dynamically populated by JavaScript -->
+        </ul>
+
+        <!-- Insights Panel -->
+        <div id="insights-panel">
+            <h3>Smart Insights</h3>
+            <!-- Dynamically populated by JavaScript -->
+        </div>
+
+        <!-- Get Started Form -->
+        <div class="cta-form">
+            <h2 class="section-title" style="text-align:left; margin-bottom: 20px;">Tell us about your idea</h2>
+            
+            <input type="text" id="idea-input" placeholder="What is your business idea?">
+            
+            <input type="text" id="name-input" placeholder="Your full name">
+            
+            <input type="tel" id="phone-input" placeholder="Phone number (WhatsApp)">
+            
+            <select id="stage-select">
+                <option value="">Current Stage</option>
+                <option value="idea">Just an Idea</option>
+                <option value="mvp">Building MVP</option>
+                <option value="revenue">Making Revenue</option>
+                <option value="scaling">Ready to Scale</option>
+            </select>
+            
+            <select id="segment-select">
+                <option value="">Business Segment</option>
+                <option value="agriculture">Agriculture</option>
+                <option value="services">Services</option>
+                <option value="financial">Financial</option>
+                <option value="tech">Technology</option>
+                <option value="retail">Retail</option>
+                <option value="creative">Creative</option>
+            </select>
+            
+            <button type="button" id="btn-form-submit">Get My Personalized Roadmap</button>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>BizForge</strong> — Building Africa's Next Generation of Entrepreneurs</p>
+        <p style="margin: 12px 0; opacity: 0.7;">Lagos, Nigeria</p>
+        
+        <div class="stack">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Vanilla JS</span>
+            <span>Mobile-First</span>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">
+            © <span id="footer-year">2026</span> BizForge. For MVP Demo Only.
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
