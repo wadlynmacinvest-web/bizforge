@@ -1,0 +1,21 @@
+{
+  "name": "bizforge",
+  "version": "1.0.0",
+  "description": "BizForge - Your complete A-to-Z business companion for Nigerian entrepreneurs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "business",
+    "entrepreneurship",
+    "nigeria",
+    "startups"
+  ],
+  "author": "BizForge",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x"
+  }
+}
